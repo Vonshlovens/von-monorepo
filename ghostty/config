@@ -46,7 +46,7 @@ macos-option-as-alt = true
 # -------------------------
 background-opacity = 0.90
 background-blur-radius = 20
-background-image = ~/devvy/vonshlovens-monorepo/ghostty/background.jpg
+background-image = ~/devvy/von-monorepo/ghostty/background.jpg
 background-image-fit = cover
 background-image-opacity = 0.5
 

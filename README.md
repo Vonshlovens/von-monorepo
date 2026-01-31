@@ -1,4 +1,4 @@
-# vonshlovens-monorepo
+# von-monorepo
 
 Personal configuration files and dotfiles repository.
 
@@ -18,7 +18,7 @@ Terminal emulator configuration with custom sunset theme and background image.
 **Installation**:
 ```bash
 # Symlink the config
-ln -sf ~/devvy/vonshlovens-monorepo/ghostty/config ~/Library/Application\ Support/com.mitchellh.ghostty/config
+ln -sf ~/devvy/von-monorepo/ghostty/config ~/Library/Application\ Support/com.mitchellh.ghostty/config
 
 # Reload with Cmd+Shift+, in Ghostty
 ```
@@ -39,7 +39,7 @@ Neovim configuration using LazyVim framework.
 mv ~/.config/nvim ~/.config/nvim.backup
 
 # Symlink the config
-ln -sf ~/devvy/vonshlovens-monorepo/nvim/config ~/.config/nvim
+ln -sf ~/devvy/von-monorepo/nvim/config ~/.config/nvim
 
 # Launch nvim - plugins will install automatically
 nvim
@@ -53,7 +53,7 @@ Terminal multiplexer configuration.
 **Installation**:
 ```bash
 # Symlink the config
-ln -sf ~/devvy/vonshlovens-monorepo/tmux/tmux.conf ~/.tmux.conf
+ln -sf ~/devvy/von-monorepo/tmux/tmux.conf ~/.tmux.conf
 
 # Reload tmux config
 tmux source-file ~/.tmux.conf
@@ -63,7 +63,7 @@ tmux source-file ~/.tmux.conf
 
 Clone the repository:
 ```bash
-git clone https://github.com/vonshlovens/vonshlovens-monorepo.git ~/devvy/vonshlovens-monorepo
+git clone https://github.com/vonshlovens/von-monorepo.git ~/devvy/von-monorepo
 ```
 
 Then follow the installation instructions for each tool above.
