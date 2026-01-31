@@ -1,0 +1,90 @@
+# This is the configuration file for Ghostty.
+#
+# This template file has been automatically created at the following
+# path since Ghostty couldn't find any existing config files on your system:
+#
+#   /Users/vonshlovens/Library/Application Support/com.mitchellh.ghostty/config
+#
+# The template does not set any default options, since Ghostty ships
+# with sensible defaults for all options. Users should only need to set
+# options that they want to change from the default.
+#
+# Run `ghostty +show-config --default --docs` to view a list of
+# all available config options and their default values.
+#
+# Additionally, each config option is also explained in detail
+# on Ghostty's website, at https://ghostty.org/docs/config.
+#
+# Ghostty can reload the configuration while running by using the menu
+# options or the bound key (default: Command + Shift + comma on macOS and
+# Control + Shift + comma on other platforms). Not all config options can be
+# reloaded while running; some only apply to new windows and others may require
+# a full restart to take effect.
+
+# ============================================================================
+# GHOSTTY CONFIGURATION
+# ============================================================================
+
+# Font Configuration
+# ------------------
+# Popular options: SF Mono, JetBrains Mono, Fira Code, Iosevka, Cascadia Code
+font-family = SF Mono
+font-size = 14
+font-feature = -calt
+
+# Window Appearance
+# -----------------
+window-padding-x = 12
+window-padding-y = 12
+window-padding-balance = true
+
+# macOS-specific window styling
+macos-titlebar-style = tabs
+macos-option-as-alt = true
+
+# Background & Transparency
+# -------------------------
+background-opacity = 0.90
+background-blur-radius = 20
+background-image = ~/devvy/vonshlovens-monorepo/ghostty/background.jpg
+background-image-fit = cover
+background-image-opacity = 0.5
+
+# Cursor
+# ------
+cursor-style = block
+cursor-style-blink = true
+
+# Sunset Theme - Warm Red/Orange/Yellow Palette
+# -----------------------------------------------
+# Dark warm colors
+palette = 0=#1d1715
+palette = 1=#f2594b
+palette = 2=#e9b96e
+palette = 3=#f9a03f
+palette = 4=#ff8c42
+palette = 5=#e85d75
+palette = 6=#ffa07a
+palette = 7=#f4dcc4
+# Bright warm colors
+palette = 8=#594945
+palette = 9=#ff6b5a
+palette = 10=#ffcb6b
+palette = 11=#ffb454
+palette = 12=#ff9e64
+palette = 13=#ff9bc6
+palette = 14=#ffb38a
+palette = 15=#ffe6d5
+
+background = #000000
+foreground = #f4dcc4
+cursor-color = #ff8c42
+selection-background = #594945
+selection-foreground = #ffe6d5
+
+# Keybindings
+# -----------
+keybind = shift+enter=text:\x1b\r
+keybind = cmd+t=new_tab
+keybind = cmd+w=close_surface
+keybind = cmd+n=new_window
