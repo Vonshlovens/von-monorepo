@@ -1,0 +1,93 @@
+# Alacritty Configuration for Windows
+# Location: %APPDATA%\alacritty\alacritty.toml
+
+# Shell configuration
+[terminal.shell]
+program = "C:\\windows\\system32\\bash.exe"
+args = ["--login"]
+
+[window]
+decorations = "Full"
+opacity = 0.95
+blur = true  # Acrylic blur on Windows 11
+
+padding = { x = 12, y = 12 }
+dynamic_padding = true
+
+[font]
+# Install JetBrainsMono Nerd Font first
+normal = { family = "JetBrainsMono NFM", style = "Regular" }
+bold = { family = "JetBrainsMono NFM", style = "Bold" }
+italic = { family = "JetBrainsMono NFM", style = "Italic" }
+bold_italic = { family = "JetBrainsMono NFM", style = "Bold Italic" }
+
+size = 12.0
+
+offset = { x = 0, y = 1 }
+glyph_offset = { x = 0, y = 0 }
+
+# Sunset Theme - Warm Red/Orange/Yellow Palette
+# Matching Ghostty and Neovim configs
+[colors.primary]
+background = "#1d1715"
+foreground = "#f4dcc4"
+
+[colors.normal]
+black = "#1d1715"
+red = "#f2594b"
+green = "#e9b96e"
+yellow = "#f9a03f"
+blue = "#ff8c42"
+magenta = "#e85d75"
+cyan = "#ffa07a"
+white = "#f4dcc4"
+
+[colors.bright]
+black = "#594945"
+red = "#ff6b5a"
+green = "#ffcb6b"
+yellow = "#ffb454"
+blue = "#ff9e64"
+magenta = "#ff9bc6"
+cyan = "#ffb38a"
+white = "#ffe6d5"
+
+[colors.cursor]
+text = "#1d1715"
+cursor = "#ff8c42"
+
+[colors.vi_mode_cursor]
+text = "#1d1715"
+cursor = "#e85d75"
+
+[colors.selection]
+text = "#ffe6d5"
+background = "#594945"
+
+[colors.search.matches]
+foreground = "#1d1715"
+background = "#ff9e64"
+
+[colors.search.focused_match]
+foreground = "#1d1715"
+background = "#e9b96e"
+
+[cursor]
+style = { shape = "Block", blinking = "On" }
+blink_interval = 750
+unfocused_hollow = true
+thickness = 0.15
+
+[terminal]
+osc52 = "CopyPaste"
+
+[mouse]
+hide_when_typing = true
+
+[keyboard]
+bindings = [
+    { key = "C", mods = "Control|Shift", action = "Copy" },
+    { key = "V", mods = "Control|Shift", action = "Paste" },
+    { key = "F11", action = "ToggleFullscreen" },
+    { key = "L", mods = "Control", action = "ClearLogNotice" },
+]
