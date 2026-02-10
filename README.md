@@ -45,6 +45,14 @@ ln -sf ~/devvy/von-monorepo/nvim/config ~/.config/nvim
 nvim
 ```
 
+### Claude Code
+Guides for setting up Claude Code hooks and customizations.
+
+- **Guides location**: `claude/`
+- **Contents**:
+  - [Kokoro TTS Hook (Linux)](claude/linux/kokoro-tts-hook.md) — Local TTS notifications for tool approval prompts
+  - [Kokoro TTS Hook (WSL2)](claude/wsl/kokoro-tts-hook.md) — WSL2-specific version with audio routing workarounds
+
 ### Tmux
 Terminal multiplexer configuration.
 
