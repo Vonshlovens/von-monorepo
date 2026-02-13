@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ss -tlnp:*)",
+      "Bash(netstat:*)",
+      "Bash(lsof:*)",
+      "Bash(sudo ss:*)",
+      "Bash(gh repo list:*)",
+      "Bash(gh repo clone:*)",
+      "Bash(find:*)",
+      "Bash(go build:*)",
+      "WebSearch",
+      "Skill(tts)",
+      "Bash(~/.claude/hooks/elevenlabs-tts/speak.sh *)"
+    ]
+  },
+  "enableAllProjectMcpServers": false
+}

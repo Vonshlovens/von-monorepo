@@ -46,13 +46,35 @@ nvim
 ```
 
 ### Claude Code
-Guides for setting up Claude Code hooks and customizations.
+User-level hooks, skills, and settings for Claude Code.
 
-- **Guides location**: `claude/`
-- **Contents**:
-  - [Kokoro TTS Hook (Linux)](claude/linux/kokoro-tts-hook.md) — Local TTS notifications for tool approval prompts
-  - [Kokoro TTS Hook (WSL2)](claude/wsl/kokoro-tts-hook.md) — WSL2-specific version with audio routing workarounds
-  - [ElevenLabs TTS Hook (WSL2)](claude/wsl/elevenlabs-tts-hook.md) — ElevenLabs-powered TTS hook with PCM playback via ffplay
+- **Config location**: `claude/`
+- **Hooks**: `claude/hooks/elevenlabs-tts/` — ElevenLabs TTS hook that speaks on Stop and PermissionRequest events
+- **Skills**: `claude/skills/tts/` — `/tts` skill for on-demand voice messages
+- **Settings**: `claude/settings.json` (hooks config), `claude/settings.local.json` (permissions)
+- **Guides**: [ElevenLabs TTS Hook (WSL2)](claude/wsl/elevenlabs-tts-hook.md)
+
+**Installation**:
+```bash
+# Copy hooks
+cp -r ~/devvy/von-monorepo/claude/hooks/elevenlabs-tts ~/.claude/hooks/
+
+# Copy skill
+mkdir -p ~/.claude/skills/tts
+cp ~/devvy/von-monorepo/claude/skills/tts/SKILL.md ~/.claude/skills/tts/
+
+# Copy settings (backs up existing)
+[ -f ~/.claude/settings.json ] && cp ~/.claude/settings.json ~/.claude/settings.json.bak
+cp ~/devvy/von-monorepo/claude/settings.json ~/.claude/
+cp ~/devvy/von-monorepo/claude/settings.local.json ~/.claude/
+
+# Set up API key
+cp ~/.claude/hooks/elevenlabs-tts/.env.example ~/.claude/hooks/elevenlabs-tts/.env
+# Edit .env with your ELEVENLABS_API_KEY
+
+# Install dependencies
+cd ~/.claude/hooks/elevenlabs-tts && bun install
+```
 
 ### Tmux
 Terminal multiplexer configuration.

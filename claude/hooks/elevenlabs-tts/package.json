@@ -1,0 +1,11 @@
+{
+  "name": "elevenlabs-tts-hook",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "bun run index.ts"
+  },
+  "dependencies": {
+    "@elevenlabs/elevenlabs-js": "^2.35.0",
+    "elevenlabs": "^1.0.0"
+  }
+}

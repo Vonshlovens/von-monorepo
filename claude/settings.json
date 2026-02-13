@@ -1,0 +1,29 @@
+{
+  "model": "opus",
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd ~/.claude/hooks/elevenlabs-tts && bun run index.ts",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd ~/.claude/hooks/elevenlabs-tts && bun run index.ts",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}
