@@ -52,6 +52,7 @@ Guides for setting up Claude Code hooks and customizations.
 - **Contents**:
   - [Kokoro TTS Hook (Linux)](claude/linux/kokoro-tts-hook.md) — Local TTS notifications for tool approval prompts
   - [Kokoro TTS Hook (WSL2)](claude/wsl/kokoro-tts-hook.md) — WSL2-specific version with audio routing workarounds
+  - [ElevenLabs TTS Hook (WSL2)](claude/wsl/elevenlabs-tts-hook.md) — ElevenLabs-powered TTS hook with PCM playback via ffplay
 
 ### Tmux
 Terminal multiplexer configuration.
