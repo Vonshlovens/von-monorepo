@@ -50,7 +50,9 @@ User-level hooks, skills, and settings for Claude Code.
 
 - **Config location**: `claude/`
 - **Hooks**: `claude/hooks/elevenlabs-tts/` — ElevenLabs TTS hook that speaks on Stop and PermissionRequest events
-- **Skills**: `claude/skills/tts/` — `/tts` skill for on-demand voice messages
+- **Skills**:
+  - `claude/skills/tts/` — `/tts` skill for on-demand voice messages
+  - `claude/skills/ralph/` — `/ralph` skill for supervising headless agent loops across four harnesses (claude, codex, opencode, gh copilot)
 - **Settings**: `claude/settings.json` (hooks config), `claude/settings.local.json` (permissions)
 - **Guides**: [ElevenLabs TTS Hook (WSL2)](claude/wsl/elevenlabs-tts-hook.md)
 
@@ -59,9 +61,10 @@ User-level hooks, skills, and settings for Claude Code.
 # Copy hooks
 cp -r ~/devvy/von-monorepo/claude/hooks/elevenlabs-tts ~/.claude/hooks/
 
-# Copy skill
-mkdir -p ~/.claude/skills/tts
+# Copy skills
+mkdir -p ~/.claude/skills/tts ~/.claude/skills/ralph
 cp ~/devvy/von-monorepo/claude/skills/tts/SKILL.md ~/.claude/skills/tts/
+cp ~/devvy/von-monorepo/claude/skills/ralph/SKILL.md ~/.claude/skills/ralph/
 
 # Copy settings (backs up existing)
 [ -f ~/.claude/settings.json ] && cp ~/.claude/settings.json ~/.claude/settings.json.bak
