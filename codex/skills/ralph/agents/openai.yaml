@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ralph Supervisor"
+  short_description: "Supervise headless agent loops"
+  default_prompt: "Use $ralph to check active ralphs and summarize their recent logs."

@@ -79,6 +79,33 @@ cp ~/.claude/hooks/elevenlabs-tts/.env.example ~/.claude/hooks/elevenlabs-tts/.e
 cd ~/.claude/hooks/elevenlabs-tts && bun install
 ```
 
+### Codex CLI
+User-level skills for the OpenAI Codex CLI (`codex`).
+
+- **Config location**: `codex/`
+- **Skills**:
+  - `codex/skills/ralph/` — `/ralph` skill for supervising headless agent loops (mirrors the Claude Code version, with codex-native invocation rules)
+
+**Installation**:
+```bash
+mkdir -p ~/.codex/skills/ralph/agents
+cp ~/devvy/von-monorepo/codex/skills/ralph/SKILL.md ~/.codex/skills/ralph/
+cp ~/devvy/von-monorepo/codex/skills/ralph/agents/openai.yaml ~/.codex/skills/ralph/agents/
+```
+
+### OpenCode
+User-level skills for the [opencode](https://opencode.ai) CLI.
+
+- **Config location**: `opencode/`
+- **Skills**:
+  - `opencode/skills/ralph/` — `/ralph` skill for supervising headless agent loops (mirrors the Claude Code version)
+
+**Installation**:
+```bash
+mkdir -p ~/.config/opencode/skills/ralph
+cp ~/devvy/von-monorepo/opencode/skills/ralph/SKILL.md ~/.config/opencode/skills/ralph/
+```
+
 ### Tmux
 Terminal multiplexer configuration.
 
