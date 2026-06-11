@@ -107,17 +107,18 @@ cp ~/devvy/von-monorepo/opencode/skills/ralph/SKILL.md ~/.config/opencode/skills
 ```
 
 ### Tmux
-Terminal multiplexer configuration.
+Terminal multiplexer configuration with a Catppuccin Mocha status line.
 
 - **Config location**: `tmux/tmux.conf`
+- **Setup guide**: [Tmux and Catppuccin setup](tmux/README.md)
 
 **Installation**:
 ```bash
 # Symlink the config
 ln -sf ~/devvy/von-monorepo/tmux/tmux.conf ~/.tmux.conf
 
-# Reload tmux config
-tmux source-file ~/.tmux.conf
+# Install Catppuccin, TPM, and the required plugins
+# by following tmux/README.md
 ```
 
 ## Setup
