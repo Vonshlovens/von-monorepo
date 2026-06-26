@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>von-monorepo · Theme &amp; Style Reference (Light)</title>
+<style>
+  :root{
+    /* Sunrise palette — the Sunset theme re-grounded on warm paper */
+    --bg:        #fbf1e6;
+    --bg-dark:   #fff8ef;
+    --bg-hl:     #f3e4d3;
+    --fg:        #3a2a23;
+    --fg-dim:    #6b5249;
+    --comment:   #9c8378;
+    --line:      #e4d2bf;
+    --accent:    #d9620a;  /* cursor / orange — darkened for contrast on light */
+    --red:       #d6402f;
+    --green:     #b9821f;
+    --yellow:    #c9750a;
+    --magenta:   #cf3f5c;
+    --cyan:      #cc6a3f;
+    --br-yellow: #b46a00;
+    --br-blue:   #c46a2a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--fg);
+    font-family:"SF Mono","JetBrains Mono","JetBrainsMono NFM",ui-monospace,monospace;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    padding:0 0 6rem;
+  }
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* ── Hero ─────────────────────────────────────────── */
+  header.hero{
+    position:relative;
+    padding:6rem 1.5rem 4rem;
+    text-align:center;
+    overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 50% -10%,
+        #ffd36b 0%, #ffae5c 26%, #ff8c5a 46%,
+        #ffcaa0 68%, var(--bg) 100%);
+  }
+  header.hero::after{
+    content:"";
+    position:absolute;left:0;right:0;bottom:0;height:50%;
+    background:linear-gradient(to top, var(--bg), transparent);
+  }
+  .hero h1{
+    position:relative;z-index:1;
+    font-size:clamp(2.2rem,6vw,4rem);
+    font-weight:800;letter-spacing:-.02em;
+    color:#5a2a10;
+    text-shadow:0 1px 0 rgba(255,250,240,.55);
+  }
+  .hero p{
+    position:relative;z-index:1;
+    margin-top:.75rem;font-size:1.05rem;
+    color:#7a3a18;font-weight:600;
+  }
+  .hero .sun{
+    position:absolute;top:42%;left:50%;
+    width:160px;height:160px;border-radius:50%;
+    transform:translate(-50%,-50%);
+    background:radial-gradient(circle, #fffaf0 0%, #ffdd8c 35%, #ff9e4a 70%, transparent 72%);
+    box-shadow:0 0 80px 30px rgba(255,190,100,.55);
+    z-index:0;
+  }
+
+  main{max-width:1000px;margin:0 auto;padding:0 1.5rem}
+
+  section{margin-top:3.5rem}
+  h2{
+    font-size:1.5rem;font-weight:700;color:var(--accent);
+    border-bottom:1px solid var(--line);
+    padding-bottom:.5rem;margin-bottom:1.25rem;
+    display:flex;align-items:center;gap:.6rem;
+  }
+  h2 .ico{font-size:1.3rem}
+  h3{font-size:1.05rem;color:var(--br-yellow);margin:1.5rem 0 .6rem}
+  p.lead{color:var(--fg-dim);max-width:70ch}
+
+  /* ── Swatch grid ──────────────────────────────────── */
+  .palette{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+    gap:.85rem;margin-top:1rem;
+  }
+  .swatch{
+    border-radius:10px;overflow:hidden;
+    background:var(--bg-dark);
+    border:1px solid var(--line);
+    transition:transform .12s ease;
+    box-shadow:0 1px 3px rgba(90,42,16,.06);
+  }
+  .swatch:hover{transform:translateY(-3px)}
+  .swatch .chip{height:70px}
+  .swatch .meta{padding:.5rem .65rem}
+  .swatch .name{font-size:.8rem;font-weight:600}
+  .swatch .hex{font-size:.72rem;color:var(--comment);text-transform:uppercase;letter-spacing:.04em}
+
+  /* ── Tables ───────────────────────────────────────── */
+  table{
+    width:100%;border-collapse:collapse;margin-top:1rem;
+    font-size:.85rem;
+    background:var(--bg-dark);
+    border:1px solid var(--line);border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 1px 3px rgba(90,42,16,.06);
+  }
+  th,td{padding:.6rem .85rem;text-align:left;border-bottom:1px solid var(--bg-hl)}
+  th{background:var(--bg-hl);color:var(--br-yellow);font-weight:600}
+  tr:last-child td{border-bottom:none}
+  td code{color:var(--cyan)}
+  .dot{display:inline-block;width:.9rem;height:.9rem;border-radius:3px;vertical-align:-2px;margin-right:.5rem;border:1px solid rgba(0,0,0,.12)}
+
+  /* ── Cards ────────────────────────────────────────── */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:1rem}
+  .card{
+    background:var(--bg-dark);border:1px solid var(--line);
+    border-radius:12px;padding:1.25rem;
+    border-top:3px solid var(--accent);
+    box-shadow:0 1px 3px rgba(90,42,16,.06);
+  }
+  .card h3{margin-top:0;color:var(--accent)}
+  .card ul{list-style:none;margin-top:.5rem}
+  .card li{padding:.2rem 0;color:var(--fg-dim);font-size:.85rem}
+  .card li::before{content:"▸ ";color:var(--line)}
+  .card .path{
+    font-size:.72rem;color:var(--comment);
+    background:var(--bg);border:1px solid var(--line);
+    border-radius:5px;padding:.15rem .4rem;display:inline-block;margin-top:.6rem;
+  }
+  .tag{
+    display:inline-block;font-size:.68rem;font-weight:600;
+    padding:.12rem .5rem;border-radius:999px;margin-bottom:.4rem;
+  }
+  .tag.sunset{background:rgba(217,98,10,.14);color:var(--accent);border:1px solid var(--accent)}
+  .tag.catppuccin{background:rgba(207,63,92,.14);color:var(--magenta);border:1px solid var(--magenta)}
+
+  /* ── Terminal demo ────────────────────────────────── */
+  .term{
+    background:var(--bg-dark);border:1px solid var(--line);border-radius:12px;
+    margin-top:1rem;overflow:hidden;box-shadow:0 10px 40px rgba(90,42,16,.12);
+  }
+  .term .bar{
+    background:var(--bg-hl);padding:.55rem .85rem;display:flex;gap:.45rem;align-items:center;
+    border-bottom:1px solid var(--line);
+  }
+  .term .bar i{width:.7rem;height:.7rem;border-radius:50%;display:inline-block}
+  .term .bar .t{margin-left:.6rem;font-size:.72rem;color:var(--comment)}
+  .term pre{padding:1rem 1.1rem;font-size:.83rem;overflow-x:auto;line-height:1.7}
+  .k{color:var(--red);font-weight:600}
+  .fn{color:var(--br-yellow)}
+  .str{color:var(--green)}
+  .num{color:var(--br-blue)}
+  .cm{color:var(--comment);font-style:italic}
+  .ty{color:var(--cyan)}
+  .op{color:var(--accent)}
+  .pr{color:var(--accent)}
+
+  footer{
+    text-align:center;margin-top:4rem;padding-top:2rem;
+    border-top:1px solid var(--line);color:var(--comment);font-size:.78rem;
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="sun"></div>
+  <h1>von-monorepo</h1>
+  <p>Colour · Theme · Style reference — a warm <strong>Sunrise</strong> (light) take on the Sunset palette</p>
+</header>
+
+<main>
+
+  <!-- OVERVIEW -->
+  <section id="overview">
+    <h2><span class="ico">🌄</span> Overview</h2>
+    <p class="lead">
+      The light companion to the <a href="theme.html">Sunset</a> reference. Same signature look — warm
+      reds, oranges and yellows — but grounded on a <strong>warm-paper</strong> background, with the
+      accent tones darkened just enough to stay legible against the light. The shared 16-colour palette,
+      UI roles and per-folder breakdown are unchanged; only the surface flips. <strong>tmux</strong> still
+      rides its stock <strong>Catppuccin&nbsp;Mocha</strong> status line.
+    </p>
+  </section>
+
+  <!-- SUNSET PALETTE -->
+  <section id="palette">
+    <h2><span class="ico">🎨</span> The Sunset Palette</h2>
+    <p class="lead">The 16-colour ANSI palette, identical in <code>ghostty/config</code> and
+      <code>alacritty/windows/alacritty.toml</code>, and mirrored into the Neovim terminal colours.
+      These swatches show the <em>true</em> theme hex values — the page chrome around them is the light remix.</p>
+
+    <h3>Normal (0–7)</h3>
+    <div class="palette">
+      <div class="swatch"><div class="chip" style="background:#1d1715"></div><div class="meta"><div class="name">0 · black / bg</div><div class="hex">#1d1715</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#f2594b"></div><div class="meta"><div class="name">1 · red</div><div class="hex">#f2594b</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#e9b96e"></div><div class="meta"><div class="name">2 · green</div><div class="hex">#e9b96e</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#f9a03f"></div><div class="meta"><div class="name">3 · yellow</div><div class="hex">#f9a03f</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#ff8c42"></div><div class="meta"><div class="name">4 · blue → orange</div><div class="hex">#ff8c42</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#e85d75"></div><div class="meta"><div class="name">5 · magenta</div><div class="hex">#e85d75</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#ffa07a"></div><div class="meta"><div class="name">6 · cyan → salmon</div><div class="hex">#ffa07a</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#f4dcc4"></div><div class="meta"><div class="name">7 · white / fg</div><div class="hex">#f4dcc4</div></div></div>
+    </div>
+
+    <h3>Bright (8–15)</h3>
+    <div class="palette">
+      <div class="swatch"><div class="chip" style="background:#594945"></div><div class="meta"><div class="name">8 · br-black</div><div class="hex">#594945</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#ff6b5a"></div><div class="meta"><div class="name">9 · br-red</div><div class="hex">#ff6b5a</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#ffcb6b"></div><div class="meta"><div class="name">10 · br-green</div><div class="hex">#ffcb6b</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#ffb454"></div><div class="meta"><div class="name">11 · br-yellow</div><div class="hex">#ffb454</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#ff9e64"></div><div class="meta"><div class="name">12 · br-blue</div><div class="hex">#ff9e64</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#ff9bc6"></div><div class="meta"><div class="name">13 · br-magenta</div><div class="hex">#ff9bc6</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#ffb38a"></div><div class="meta"><div class="name">14 · br-cyan</div><div class="hex">#ffb38a</div></div></div>
+      <div class="swatch"><div class="chip" style="background:#ffe6d5"></div><div class="meta"><div class="name">15 · br-white</div><div class="hex">#ffe6d5</div></div></div>
+    </div>
+  </section>
+
+  <!-- UI ROLES -->
+  <section id="roles">
+    <h2><span class="ico">🖌️</span> UI Roles</h2>
+    <p class="lead">Shared semantic colours for cursor, selection and search — kept in sync across all three tools.</p>
+    <table>
+      <thead><tr><th>Role</th><th>Colour</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Background</td><td><span class="dot" style="background:#1d1715"></span><code>#1d1715</code></td><td>Alacritty &amp; Neovim. Ghostty draws over a <code>#000000</code> base with a background image.</td></tr>
+        <tr><td>Background (dark)</td><td><span class="dot" style="background:#15120f"></span><code>#15120f</code></td><td>Neovim floats, sidebars, statusline.</td></tr>
+        <tr><td>Background (highlight)</td><td><span class="dot" style="background:#2a2421"></span><code>#2a2421</code></td><td>Cursor line / column.</td></tr>
+        <tr><td>Foreground</td><td><span class="dot" style="background:#f4dcc4"></span><code>#f4dcc4</code></td><td>Primary text.</td></tr>
+        <tr><td>Comment</td><td><span class="dot" style="background:#8a7570"></span><code>#8a7570</code></td><td>Muted, italic in Neovim.</td></tr>
+        <tr><td>Cursor</td><td><span class="dot" style="background:#ff8c42"></span><code>#ff8c42</code></td><td>The signature orange — block + blink.</td></tr>
+        <tr><td>Selection</td><td><span class="dot" style="background:#594945"></span><code>#594945</code> / <code>#ffe6d5</code></td><td>bg / fg.</td></tr>
+        <tr><td>Search match</td><td><span class="dot" style="background:#ff9e64"></span><code>#ff9e64</code></td><td>Focused match uses <code>#e9b96e</code>.</td></tr>
+        <tr><td>Vi-mode cursor</td><td><span class="dot" style="background:#e85d75"></span><code>#e85d75</code></td><td>Alacritty only.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- LIVE DEMO -->
+  <section id="demo">
+    <h2><span class="ico">💻</span> In Practice</h2>
+    <p class="lead">How the Neovim syntax mapping (<code>nvim/config/lua/plugins/sunset-theme.lua</code>) paints code.</p>
+    <div class="term">
+      <div class="bar">
+        <i style="background:#f2594b"></i><i style="background:#f9a03f"></i><i style="background:#e9b96e"></i>
+        <span class="t">sunset.lua — nvim</span>
+      </div>
+<pre><span class="cm">-- Sunset Theme: warm reds, oranges, yellows</span>
+<span class="k">local</span> <span class="fn">sunset</span> = {
+  <span class="pr">bg</span>    = <span class="str">"#1d1715"</span>,   <span class="cm">-- ember dark</span>
+  <span class="pr">accent</span>= <span class="str">"#ff8c42"</span>,   <span class="cm">-- cursor orange</span>
+}
+
+<span class="k">function</span> <span class="fn">M</span>.<span class="fn">paint</span>(<span class="ty">colors</span>)
+  <span class="k">for</span> name, hex <span class="k">in</span> <span class="fn">pairs</span>(colors) <span class="k">do</span>
+    <span class="op">vim</span>.api.<span class="fn">nvim_set_hl</span>(<span class="num">0</span>, name, { fg = hex })
+  <span class="k">end</span>
+  <span class="k">return</span> <span class="num">true</span>
+<span class="k">end</span></pre>
+    </div>
+  </section>
+
+  <!-- PER-FOLDER -->
+  <section id="folders">
+    <h2><span class="ico">📁</span> By Folder</h2>
+    <div class="cards">
+
+      <div class="card">
+        <span class="tag sunset">Sunset</span>
+        <h3>ghostty</h3>
+        <ul>
+          <li>Full 16-colour sunset palette</li>
+          <li>SF Mono · 14pt · ligatures off</li>
+          <li>Background image @ 0.5 opacity + 20px blur</li>
+          <li>Block cursor <code>#ff8c42</code>, blinking</li>
+        </ul>
+        <div class="path">ghostty/config</div>
+      </div>
+
+      <div class="card">
+        <span class="tag sunset">Sunset</span>
+        <h3>alacritty</h3>
+        <ul>
+          <li>Same palette as Ghostty (Windows build)</li>
+          <li>JetBrainsMono NFM · 12pt</li>
+          <li>0.95 opacity + acrylic blur</li>
+          <li>Vi-mode cursor in magenta</li>
+        </ul>
+        <div class="path">alacritty/windows/alacritty.toml</div>
+      </div>
+
+      <div class="card">
+        <span class="tag sunset">Sunset</span>
+        <h3>nvim</h3>
+        <ul>
+          <li>Tokyonight "night" re-coloured to sunset</li>
+          <li>Extended bg shades + full syntax map</li>
+          <li>Warm diagnostics, git signs, diffs</li>
+          <li>Matches terminal cursor / selection</li>
+        </ul>
+        <div class="path">nvim/config/lua/plugins/sunset-theme.lua</div>
+      </div>
+
+      <div class="card" style="border-top-color:var(--magenta)">
+        <span class="tag catppuccin">Catppuccin</span>
+        <h3>tmux</h3>
+        <ul>
+          <li>Catppuccin <strong>Mocha</strong> flavour</li>
+          <li>Rounded window status style</li>
+          <li>Status modules: app · cpu · ram · session · uptime</li>
+        </ul>
+        <div class="path">tmux/tmux.conf</div>
+      </div>
+
+      <div class="card" style="border-top-color:var(--line)">
+        <h3>others</h3>
+        <ul>
+          <li><strong>bash / fish</strong> — shell config, no theming</li>
+          <li><strong>claude / codex / opencode</strong> — agent skills &amp; hooks</li>
+        </ul>
+        <div class="path">no colour theme</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TYPOGRAPHY -->
+  <section id="type">
+    <h2><span class="ico">🔤</span> Typography &amp; Window Style</h2>
+    <table>
+      <thead><tr><th>Tool</th><th>Font</th><th>Size</th><th>Window</th></tr></thead>
+      <tbody>
+        <tr><td>Ghostty</td><td>SF Mono</td><td>14</td><td>0.90 opacity · 20px blur · 12px padding · bg image</td></tr>
+        <tr><td>Alacritty</td><td>JetBrainsMono NFM</td><td>12</td><td>0.95 opacity · acrylic blur · 12px padding</td></tr>
+        <tr><td>Neovim</td><td>(terminal font)</td><td>—</td><td>Floats &amp; borders in <code>#ff8c42</code> on <code>#15120f</code></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+</main>
+
+<footer>
+  Generated from the configs in <strong>von-monorepo</strong> · Sunrise (light) variant 🌄 · see <a href="theme.html">theme.html</a> for dark
+</footer>
+
+</body>
+</html>
